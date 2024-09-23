@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f0f2f5; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        }
+
+        .form-container { 
+            width: 380px; 
+            padding: 40px; 
+            background-color: #fff; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+        }
+
+        h2 { 
+            text-align: center; 
+            font-size: 26px; 
+            color: #333; 
+            margin-bottom: 30px; 
+            font-weight: bold;
+        }
+
+        input { 
+            width: 100%; 
+            padding: 14px; 
+            margin: 10px 0; 
+            border-radius: 8px; 
+            border: 1px solid #ccc; 
+            font-size: 16px; 
+            background-color: #f9f9f9;
+        }
+
+        input:focus { 
+            border-color: #007BFF; 
+            outline: none; 
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+        }
+
+        button { 
+            width: 100%; 
+            padding: 14px; 
+            background-color: #007BFF; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: background-color 0.3s ease; 
+        }
+
+        button:hover { 
+            background-color: #0056b3; 
+        }
+
+        a { 
+            display: block; 
+            text-align: center; 
+            margin-top: 20px; 
+            color: #007BFF; 
+            text-decoration: none; 
+            font-size: 14px;
+        }
+
+        a:hover { 
+            text-decoration: underline; 
+        }
+
+        ::placeholder {
+            color: #888;
+        }
+
+        .error { 
+            color: #e74c3c; 
+            font-size: 14px; 
+            margin-top: -8px; 
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 500px) {
+            .form-container { 
+                width: 90%; 
+                padding: 30px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Create an Account</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+    <a href="{% url 'login' %}">Already have an account? Log in here</a>
+</div>
+
+</body>
+</html>

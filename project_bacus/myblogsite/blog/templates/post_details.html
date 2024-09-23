@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-top: 40px;
+            color: #007BFF;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        ul li strong {
+            color: #007BFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+
+        <h2>Comments:</h2>
+        <ul>
+            {% for comment in comments %}
+                <li><strong>{{ comment.author }}</strong>: {{ comment.text }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
